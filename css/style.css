@@ -172,13 +172,13 @@ header #logo {
   background-size: contain;
   height: 100%;
   width: 150px;
-  opacity: 0.68;
+  opacity: 1;
 }
 header.scrolled {
-  background: rgba(255,255,255,0.3);
-  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
-  -moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15);
+  background: linear-gradient(90rad, #06afd7, #0195cb);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,0);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0);
   height: 60px;
 }
 header.scrolled #nav-toggle {
@@ -186,6 +186,13 @@ header.scrolled #nav-toggle {
   top: 30px;
   -webkit-transform: translateY(-15px);
   transform: translateY(-15px);
+}
+header.scrolled #logo {
+  position: absolute;
+  top: 20px;
+  height: 42px;
+  -webkit-transform: translateY(-15px);
+  transform: translateY(-8px);
 }
 @media screen and (max-width: 719px) {
   .m-header .top-image {
