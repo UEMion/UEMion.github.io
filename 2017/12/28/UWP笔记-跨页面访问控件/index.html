@@ -3,7 +3,7 @@
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>archive_a: 2019 | 姚一鸣的小窝</title>
+    <title>UWP笔记-跨页面访问控件 | 姚一鸣的小窝</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
@@ -74,41 +74,69 @@
 <!--文章列表-->
 <div class="wrapper">
   
-    <ul class="posts-list mb+ js-posts">
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-            <i class="post-status iconfont icon-icon"></i>  
-          
-          <h2 class="no-background"  >
-            <span><a href="/2019/08/13/UWP笔记-Release版本GetProperties-方法不能用/">UWP笔记-Release版本GetProperties()方法不能用?</a></span>
-            <time class="post-time" datetime="2019-08-13T07:21:51.000Z" itemprop="datePublished">2019-08-13</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2019/08/13/NoMewing-隐私策略/">NoMewing 隐私策略</a></span>
-            <time class="post-time" datetime="2019-08-13T07:09:41.000Z" itemprop="datePublished">2019-08-13</time>
-          </h2>
-        </li>
-      
-    </ul>
-    
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      UWP笔记-跨页面访问控件
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<p>刚刚看到一个东西很有用，在自己的博客记录一下哈哈<br>说的是开发UWP时，经常需要在这个页面访问另一个页面的控件<br>直接<code>MainPage.myFrame</code>直接这样访问当然是不行的，因为<code>myFrame</code>这个控件不是<code>Public</code>，这样即可：<br>先在XAML界面这个控件myFrame里加上这样一句话</p>
+<pre><code class="c#">x:FieldModifier=&quot; Public&quot;</code></pre>
+<p>然后对应的C#代码里面这样：</p>
+<pre><code class="c#">    public sealed partial class MainPage : Page
+    {
+
+        public static MainPage firstPage;
+
+        public MainPage()
+        {
+            this.InitializeComponent();
+            firstPage= this;
+        }
+</code></pre>
+<p>这样之后就可以在别的页面的代码里通过<code>MainPage.firstPage.myFrame</code>访问这个控件了</p>
+
+	</div>
+	<div class="meta split">
+		
+		<time class="post-date" datetime="2017-12-28T01:19:06.000Z" itemprop="datePublished">2017-12-28</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="UWP笔记-跨页面访问控件" data-title="UWP笔记-跨页面访问控件" data-url="http://yoursite.com/2017/12/28/UWP笔记-跨页面访问控件/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
 
   
 </div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
 
 
 

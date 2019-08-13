@@ -3,7 +3,7 @@
   <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>archive_a: 2019 | 姚一鸣的小窝</title>
+    <title>UWP笔记-ListView总是默认选中第一项 | 姚一鸣的小窝</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
@@ -74,41 +74,55 @@
 <!--文章列表-->
 <div class="wrapper">
   
-    <ul class="posts-list mb+ js-posts">
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-            <i class="post-status iconfont icon-icon"></i>  
-          
-          <h2 class="no-background"  >
-            <span><a href="/2019/08/13/UWP笔记-Release版本GetProperties-方法不能用/">UWP笔记-Release版本GetProperties()方法不能用?</a></span>
-            <time class="post-time" datetime="2019-08-13T07:21:51.000Z" itemprop="datePublished">2019-08-13</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2019/08/13/NoMewing-隐私策略/">NoMewing 隐私策略</a></span>
-            <time class="post-time" datetime="2019-08-13T07:09:41.000Z" itemprop="datePublished">2019-08-13</time>
-          </h2>
-        </li>
-      
-    </ul>
-    
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      UWP笔记-ListView总是默认选中第一项
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<p>刚刚制作了一个记密码的小应用，在列表这里出现了如题的问题，总是会自动选中第一项，到网上搜到的前辈的解决办法是设置列表 <code>SelectionMode</code> 是 <code>None，把</code> <code>SelectionChanged</code> 事件改为 <code>ItemClicked</code>，如此一来虽然解决了问题，但是就不能显示选中的状态了，也不太完美，到处打听最终想起来到神奇的网站 StackOverflow 上搜了下，果然有，而且很简单，把 <code>ListView</code> 的 <code>IsSynchronizedWithCurrentItem</code> 属性设置为 <code>False</code> 即可！效果如下，其实只看图片看不出啥，只是顺便展示一下在下的应用 ∠( ᐛ 」∠)＿<br><img src="https://img-blog.csdn.net/20180731123826390?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1llYU1pb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="好多密码 UWP"></p>
+
+	</div>
+	<div class="meta split">
+		
+		<time class="post-date" datetime="2018-07-31T04:39:02.000Z" itemprop="datePublished">2018-07-31</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="UWP笔记-ListView总是默认选中第一项" data-title="UWP笔记-ListView总是默认选中第一项" data-url="http://yoursite.com/2018/07/31/UWP笔记-ListView总是默认选中第一项/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
 
   
 </div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
 
 
 
