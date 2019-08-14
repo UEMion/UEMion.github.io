@@ -63,7 +63,7 @@
   
 
 	<div class='post-body mb'>
-		<p>人生第一篇博客，现在还是一个初学者，是真的菜，所以各位前辈如果看到了还希望多多指教(/▽＼)。<br>有一次想做一个小工具，就是我们在XAML和C#的<code>Colors</code>类里面需要设置颜色时，会有候选颜色的名称提示：<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMDE2MjEyMzUzNTk3" alt="VS里面的智能提示"><br>但是并不能看到这个颜色看起来是什么样子的，所以我就用反射获取了<code>Colors</code>类的每一个属性的名字（也就是每个颜色的名字），然后就可以用一个<code>GridView</code>显示出每一个颜色了，代码和最终效果如下：</p>
+		<p>人生第一篇博客，现在还是一个初学者，是真的菜，所以各位前辈如果看到了还希望多多指教(/▽＼)。<br>有一次想做一个小工具，就是我们在XAML和C#的<code>Colors</code>类里面需要设置颜色时，会有候选颜色的名称提示：<br><img src="https://storage.live.com/items/5C86D43AB83A1464!274093?authkey=ADH7Q1bZZEHcW4M" alt="VS里面的智能提示(OneDrive图床)"><br>但是并不能看到这个颜色看起来是什么样子的，所以我就用反射获取了<code>Colors</code>类的每一个属性的名字（也就是每个颜色的名字），然后就可以用一个<code>GridView</code>显示出每一个颜色了，代码和最终效果如下：</p>
 <pre><code class="c#">Type t = typeof(Colors);
 PropertyInfo[] properties = t.GetProperties();
 foreach (PropertyInfo property in properties)
@@ -72,7 +72,7 @@ foreach (PropertyInfo property in properties)
     ec.name = property.Name;
     AllColors.Add(ec);
 }</code></pre>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMDE2MjEzMDQ1NzIy" alt><br>然后我就遇到了一个问题，在Release版本下打开后界面是空白的！经过一系列的试验发现根本没有获得<code>Colors</code>类的属性名字，实在让我费解…刚刚入门没有任何经验，好在有一张嘴，四处请教最终一位前辈给了我一个<a href="https://stackoverflow.com/questions/35359942/type-getproperties-doesnt-work-in-release%20Stack%20Overflow%E7%9A%84%E8%A7%A3%E7%AD%94" target="_blank" rel="noopener">链接</a>，翻译一下就是说打开项目的属性并双击 <code>Default.rd.xml</code>。添加：</p>
+<p><img src="https://storage.live.com/items/5C86D43AB83A1464!274094?authkey=ADH7Q1bZZEHcW4M" alt="OneDrive图床"><br>然后我就遇到了一个问题，在Release版本下打开后界面是空白的！经过一系列的试验发现根本没有获得<code>Colors</code>类的属性名字，实在让我费解…刚刚入门没有任何经验，好在有一张嘴，四处请教最终一位前辈给了我一个<a href="https://stackoverflow.com/questions/35359942/type-getproperties-doesnt-work-in-release%20Stack%20Overflow%E7%9A%84%E8%A7%A3%E7%AD%94" target="_blank" rel="noopener">链接</a>，翻译一下就是说打开项目的属性并双击 <code>Default.rd.xml</code>。添加：</p>
 <pre><code class="xml">   &lt;Type Name=&quot;Windows.UI.Text.FontWeights&quot; 
    Dynamic=&quot;Required All&quot; /&gt;</code></pre>
 <p>问题便解决了。那个鸡肋应用现在在Win10商店可以下载的，需要的可以<a href="https://www.microsoft.com/store/apps/9mt8vww9xmnx" target="_blank" rel="noopener">点击此处</a>下载。</p>
